@@ -1,0 +1,16 @@
+[0] Config.pm:354> INFO - This is Biber 2.7
+[1] Config.pm:357> INFO - Logfile is 'Ataskaita.blg'
+[87] biber-MSWIN64:303> INFO - === 
+[144] Biber.pm:359> INFO - Reading 'Ataskaita.bcf'
+[287] Biber.pm:835> INFO - Found 1 citekeys in bib section 0
+[310] Biber.pm:3670> INFO - Processing section 0
+[341] Biber.pm:3840> INFO - Looking for bibtex format file 'bibliografija.bib' for section 0
+[345] bibtex.pm:1435> INFO - Decoding LaTeX character macros into UTF-8
+[351] bibtex.pm:1292> INFO - Found BibTeX data source 'bibliografija.bib'
+[356] Utils.pm:164> WARN - BibTeX subsystem: C:\Users\normie\AppData\Local\Temp\HN_aov9tdj\bibliografija.bib_13624.utf8, line 4, warning: 148 characters of junk seen at toplevel
+[371] UCollate.pm:68> INFO - Overriding locale 'lt-LT' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[372] UCollate.pm:68> INFO - Overriding locale 'lt-LT' defaults 'variable = shifted' with 'variable = non-ignorable'
+[372] Biber.pm:3499> INFO - Sorting list 'anyt/global/' of type 'entry' with scheme 'anyt' and locale 'lt-LT'
+[374] bbl.pm:608> INFO - Writing 'Ataskaita.bbl' with encoding 'UTF-8'
+[375] bbl.pm:712> INFO - Output to Ataskaita.bbl
+[375] Biber.pm:109> INFO - WARNINGS: 1

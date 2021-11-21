@@ -1,0 +1,23 @@
+<module rename-to="com.User">
+    <inherits name="com.User" />
+    <set-property name="user.agent" value="safari" />
+    <set-property name="locale" value="default" />
+</module>
+
+<module rename-to="com.Admin">
+    <inherits name="com.Admin" />
+    <set-property name="user.agent" value="safari" />
+    <set-property name="locale" value="default" />
+</module>
+
+<!-- <module rename-to="com.Main">
+    <inherits name="com.Main" />
+    <set-property name="user.agent" value="ie6" />
+    <set-property name="locale" value="default" />
+</module>
+
+<module rename-to="com.Main">
+    <inherits name="com.Main" />
+    <set-property name="user.agent" value="ie8" />
+    <set-property name="locale" value="default" />
+</module> -->
