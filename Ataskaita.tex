@@ -182,12 +182,25 @@
 			PMD turi savų trūkumų, kartais yra rodomos klaidos kurių negalima ištaisyti, pavyzdžiui rodomos klaidos naudojant Lombok generuojamą kodą.
 			Išspręsti tokius tūkumus padeda lanksti PMD konfigūracija, kurios pagalba galima išjungti norimas kodo analizės taisykles visam projektui arba tik vienam failui.
 		\subsubsection{SpotBugs}
-			SpotBugs yra statinės kodo analizės įrankis padedantis surasti kodo klaidas, tokias kaip neinicializuoti laukai, laukai turintys null reikšmę kai kode anotacijos null reikšmės neleidžia, sąlygos sakiniai visuomet gražinantys tą pačia reikšmę bei kitas klaidas kurios sintaksiškai yra teisingos, bet gali sukelti programos sutrikimus ateityje. 
-		\subsubsection{OWASP dependency vulnerabilities check}
-		\subsubsection{Enforce dependency conficts check}
-		\subsubsection{Checkmarx security check}
+			SpotBugs yra statinės kodo analizės įrankis padedantis surasti kodo klaidas, tokias kaip neinicializuoti laukai, laukai turintys null reikšmę kai kode anotacijos null reikšmės neleidžia, sąlygos sakiniai visuomet gražinantys tą pačia reikšmę bei kitas klaidas kurios sintaksiškai yra teisingos, bet gali sukelti programos sutrikimus ateityje.
+		\subsubsection{Kodo priklausomybių tikrinimas}
+			Siekiant užtikrinti, kad projekto kodas būtų saugus svarbu užtikrinti, kad kode naudojamos priklausomybės būtų saugios.
+			Šiam tikslui naudojome dependency-check-maven ir maven-enforcer-plugin bibleotekas, jos užtikrino, kad naudojamos kodo priklausomybių versijos neturi žinomų saugumo spragų ir priklausomybių versijos nesiduplikuoja arba nėra nurodytos dvi skirtingos versijos tai pačiai priklausomybei.
+		\subsubsection{Checkmarx ir SonarQube}
+			Kliento prašymu turėjome naudoti Checkmarx saugumo statinį analizatorių ir SonarQube statinių kodo analizatorių.
+			Kaikurie dalykai analizuojami šių įrankių jau buvo daromi aukščiau minėtuose įrankiuose, bet buvo nutarta palikti naudojamus įrankius, nes jų vykdymo laikas yra trumpesnis ir perteklinė analizė nėra blogai.
 		\subsubsection{Vieneto ir integraciniai testai}
+			Dar vienas svarbus kodo kokybės aspektas yra testai.
+			Nutarėme, kad projekto išeities kodas turi būti 80 procentų padengtas testais.
+			Tą užtikrinti naudojome Jacoco biblioteką parodančia koks yra projekto kodo padengimo testais procentais.
 		\subsubsection{Kodo formatavimas}
+			Paskutinis aspektas kurį norėjome užtikrinti buvo kodo stiliaus pastovumas.
+			Jeigu kodas visame projekte atrodo panašiai tampa lengiau skaityti ir suprasti kodą.
+			Šiam tikslui pasirinkome plačiai naudojama Google Java style konvenciją, kurią tikrinom pagal Google suteiktą stiliaus tikrinimo įrankį checkStyle. 
+		\subsubsection{Integracija su Github Actions}
+			Suprantome, kad reikia priversti programuotojus naudotis statinio kodo analizės įrankiais nes kitu atveju niekas jų nenaudos.
+			Buvo nutarta šiuos įrankius sukonfigūruoti Github Action aplinkoje, kuri užtikrina, kad joks kodas negalėtų patekti į duomenų bazę prieš tai nepraėjęs visų minėtų įrankių.
+			Visi šie įrankiai kartu su Github Actions integracija yra toliau sėkmingai naudojami komandoje.
 
 		
 \section{Rezultatai, išvados ir pasiūlymai}
