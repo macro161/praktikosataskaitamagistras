@@ -156,10 +156,50 @@
 	
 		
 	\subsection{Užduotis: Suprojektuoti duomenų bazės schemą.}
+		Pradedant projekta klientas pateike verslo reikalavimus, kaip skirtingi mokesciu modeliai saveikauja tarpusavyje ir kokias reiksmes jie turi.
+		Reikejo sukurti duomenu bazes schema kuri pasizymetu siomis savybemis:
+		\begin{itemize}
+			\item{Entitis turetu buta kaip apsisaugoti nuo false readu}
+			\item{Kiekvienas entitis butu unikaliai atskiriamas}
+		\end{itemize}
+		
+
 
 	\subsection{Užduotis: Išrinkti Java programavimo karkasą tinkamą debesijos kompiuterijai.}
+		Projekta pradejome nuo nulio ir gavome is kliento prasyma isrinkti Java kalbos karkasa labiau pritaikya debesijos skaiciavimams.
+		Akivaizdus sprendimas butu buves pasirinkti siuo metu populiariausia Spring karkasa ir ji naudoti, taciau norejome isitikinti, ar jis yra geriausias pasirinkimas.
+		Atlikus pirmine analize supratome, kad Spring karkasas turi dvi pagrindines problemas
+		\begin{itemize}
+			\item{Ilgas salto paleidimo laikas(angl. Cold start)}
+			\item{Didelis sugeneruotu failu dydis}
+		\end{itemize}
+		Abu sie pamineti aspektai apkrauna debesijos aplinka, kas reiskia didesniu palaikymo kastus.
+		Atlikus paieska internete buvo prieita prie alternatyvu Spring karkasui:
+		\begin{itemize}
+			\item{Micronaut}
+			\item{Quarkus}
+		\end{itemize}
+		Abu sie karkasai pasizymi prieslaikiniu kompiliavimu(angl. Ahead of Time Compilation).
+		Sis kompiliavimo budas leidzia sukompiliuoti auksto lygio programini koda i native byte koda faila.
+		To deka native failai buna mazesnis negu kompiliuojant just in time kompiliavimu.
+		Kadangi atliekamas ahead of time kompiliavimas programai nebereikia atlikti brangiu refleksijos operaciju suletinanciu programos pasileidima.
+		Palyginus internete rastus testus matuojancius Spring, Micronaut ir Quakus kompiliavimo laika, atminties sunaudijima, pasileidimo greiti ir uzkrausu apdorojimo greiti
+		pamateme, kad Micronaut ir Quarrkus karkasai skiriasi nezymiai, vienuose testuose laimi Micronaut kituose Quarkus, taciau skirtumas tarp siu dvieju karkasu ir
+		Spring karkaso buvo zymus ir matomas.
+		Spring karkasas laimi tik kompiliavimo greicio kategorijoje, kas produkciniai aplinkai nera svarbu.
+		Nusprendeme pasirinkti Micronaut karkasa, nes jis savo sintakse yra panasiausias Spring karkasui ir komanda jau turejo patirties dirbant su Spring.
+		Beto, jeigu ateityje Spring implementuos AOT kompiliacija ir native image'us bus nesunku migruoti projekta atgal i Spring.
+
 
 	\subsection{Užduotis: Suprojektuoti duomenų sinchronizavimo architektūrą tarp atskirų duomenų bazių.}
+		Kurdami integracija su Auth0 servisu turejome uztikrinti, kad duomenys tiek Auth0 duomenu bazeje tiek kliento duomenu bazeje sutaptu.
+		Tiek bandant irasyti duomenis i Atuh0 duomenu baze tiek i kliento duomenu baze gali istikri sutrikimai, kuriu metu duomenys neissisaugotu ir atsirastu nesutapimas tarp siu baziu.
+		Kadangi duomenys bandomi irasyti i dvi skirtingas duomenu bazes neimanoma visko atlikti per viena tranzakcija.
+		Reikia sugalvoti mechanizma uztikrinanti, kad ivykus sutrikimui, duomenys butu atstatomi o atstatymui nepasisekus apie nesutapima butu informuoti suinteresuoti asmenys kurie pataisytu 
+		si neatitikimas.
+		Kadangi bus kuriama daug metodu kurie kreipsis skirtingais budais i abi duomenu bazes reikia bendro mechanizmo darbui tarp duomenu baziu.
+		
+
 
 	\subsection{Užduotis: Projektui parinkti kokybės užtikrinimo gerąsias praktikas ir jų vykdymo užtikrinimo būdus.}
 		Komanda nutarė, kad norint išlaikyti aukštą kodo kokybę ir sumažinti kodo klaidų ir saugumo spragų.
