@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.8) (preloaded format=xelatex 2021.11.21)  22 NOV 2021 19:27
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.8) (preloaded format=xelatex 2021.11.21)  26 NOV 2021 00:09
 entering extended mode
 **./Ataskaita.tex
 (Ataskaita.tex
@@ -1343,7 +1343,33 @@ Package biblatex Warning: Conflicting options.
 (biblatex)                'date=iso' requires 'seconds=true'.
 (biblatex)                Setting 'seconds=true' on input line 38.
 
-No file Ataskaita.aux.
+(Ataskaita.aux
+LaTeX Info: Redefining \rmfamily on input line 23.
+LaTeX Info: Redefining \sffamily on input line 23.
+LaTeX Info: Redefining \ttfamily on input line 23.
+
+
+LaTeX Warning: Label `img:kurimoProcesas' multiply defined.
+
+
+LaTeX Warning: Label `img:kurimoProcesas' multiply defined.
+
+
+LaTeX Warning: Label `img:kurimoProcesas' multiply defined.
+
+
+LaTeX Warning: Label `img:kurimoProcesas' multiply defined.
+
+
+LaTeX Warning: Label `img:kurimoProcesas' multiply defined.
+
+
+LaTeX Warning: Label `img:kurimoProcesas' multiply defined.
+
+
+LaTeX Warning: Label `img:kurimoProcesas' multiply defined.
+
+)
 \openout1 = `Ataskaita.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
@@ -1357,7 +1383,7 @@ LaTeX Font Info:    ... okay on input line 38.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 38.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 3
 8.
-(C:\Users\Matas\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmr.fd
+ (C:\Users\Matas\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 38.
@@ -1541,12 +1567,10 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 38.
 LaTeX Info: Redefining \pageref on input line 38.
 LaTeX Info: Redefining \nameref on input line 38.
+ (Ataskaita.out) (Ataskaita.out)
 \@outlinefile=\write5
 \openout5 = `Ataskaita.out'.
 
-
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
 
 
 Package todonotes Warning: The length marginparwidth is less than 2cm and will 
@@ -1570,14 +1594,15 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 [1
 
-]
-
-Package hyperref Warning: old toc file detected, not used; run LaTeX again.
-
+] (Ataskaita.toc
+LaTeX Info: Redefining \rmfamily on input line 3.
+LaTeX Info: Redefining \sffamily on input line 3.
+LaTeX Info: Redefining \ttfamily on input line 3.
+)
 \tf@toc=\write6
 \openout6 = `Ataskaita.toc'.
 
-[2
+ [2
 
 ] [3
 
@@ -1585,9 +1610,36 @@ Package hyperref Warning: old toc file detected, not used; run LaTeX again.
 
 ] [5] [6
 
-] [7] [8] [9]
+]
+File: img/eight.png Graphic file (type bmp)
+<img/eight.png>
+ [7]
+File: img/three.png Graphic file (type bmp)
+<img/three.png>
+File: img/one.png Graphic file (type bmp)
+<img/one.png>
+File: img/two.png Graphic file (type bmp)
+<img/two.png>
+ [8]
+File: img/five.png Graphic file (type bmp)
+<img/five.png>
+ [9]
+File: img/six.png Graphic file (type bmp)
+<img/six.png>
+ [10]
+File: img/seven.png Graphic file (type bmp)
+<img/seven.png>
 
-LaTeX Warning: Empty bibliography on input line 233.
+Overfull \hbox (15.40515pt too wide) in paragraph at lines 252--253
+[][] 
+ []
+
+[11]
+File: img/four.png Graphic file (type bmp)
+<img/four.png>
+ [12] [13] [14]
+
+LaTeX Warning: Empty bibliography on input line 344.
 
 The property list \polyglossia@langsetup contains the pairs (without outer
 braces):
@@ -1639,7 +1691,7 @@ braces):
 >  {english/babelname}  =>  {american}
 >  {english/localnumeral}  =>  {polyglossia@C@localnumeral}
 >  {english/Localnumeral}  =>  {polyglossia@C@localnumeral}.
-[10
+[15
 
 ] (Ataskaita.aux
 LaTeX Info: Redefining \rmfamily on input line 23.
@@ -1647,32 +1699,21 @@ LaTeX Info: Redefining \sffamily on input line 23.
 LaTeX Info: Redefining \ttfamily on input line 23.
 )
 
-LaTeX Warning: There were undefined references.
+LaTeX Warning: There were multiply-defined labels.
 
-
-Package rerunfilecheck Warning: File `Ataskaita.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Ataskaita.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  BA7384970977CB32D4DA6039115E6ECB;6528.
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                Ataskaita
-(biblatex)                and rerun LaTeX afterwards.
-
+Package rerunfilecheck Info: File `Ataskaita.out' has not changed.
+(rerunfilecheck)             Checksum: 4A301B2960CFC39D7F4A9FC7AE5BAFB2;6646.
 Package logreq Info: Writing requests to 'Ataskaita.run.xml'.
 \openout1 = `Ataskaita.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 34881 strings out of 411295
- 693950 string characters out of 2831840
- 1505879 words of memory out of 3000000
- 54811 multiletter control sequences out of 15000+600000
- 409302 words of font info for 67 fonts, out of 8000000 for 9000
+ 35093 strings out of 411295
+ 697126 string characters out of 2831840
+ 1507059 words of memory out of 3000000
+ 54987 multiletter control sequences out of 15000+600000
+ 416724 words of font info for 95 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 117i,11n,145p,744b,3905s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 117i,11n,145p,744b,3957s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Ataskaita.pdf (10 pages).
+Output written on Ataskaita.pdf (15 pages).

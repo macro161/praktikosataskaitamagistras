@@ -34,34 +34,36 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.4.}Užduotis: Suprojektuoti duomenų bazės schemą.}{7}{subsection.3.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.5.}Užduotis: Išrinkti Java programavimo karkasą tinkamą debesijos kompiuterijai.}{7}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.5.}Užduotis: Išrinkti Java programavimo karkasą tinkamą debesijos kompiuterijai.}{8}{subsection.3.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.6.}Užduotis: Suprojektuoti duomenų sinchronizavimo architektūrą tarp atskirų duomenų bazių.}{7}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.6.}Užduotis: Suprojektuoti duomenų sinchronizavimo architektūrą tarp atskirų duomenų bazių.}{10}{subsection.3.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.7.}Užduotis: Projektui parinkti kokybės užtikrinimo gerąsias praktikas ir jų vykdymo užtikrinimo būdus.}{7}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.7.}Užduotis: Projektui parinkti kokybės užtikrinimo gerąsias praktikas ir jų vykdymo užtikrinimo būdus.}{12}{subsection.3.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.7.1.}JavaDocs validacija}{7}{subsubsection.3.7.1}%
+\contentsline {subsubsection}{\numberline {3.7.1.}JavaDocs validacija}{12}{subsubsection.3.7.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.7.2.}PMD}{7}{subsubsection.3.7.2}%
+\contentsline {subsubsection}{\numberline {3.7.2.}PMD}{13}{subsubsection.3.7.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.7.3.}SpotBugs}{8}{subsubsection.3.7.3}%
+\contentsline {subsubsection}{\numberline {3.7.3.}SpotBugs}{13}{subsubsection.3.7.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.7.4.}Kodo priklausomybių tikrinimas}{8}{subsubsection.3.7.4}%
+\contentsline {subsubsection}{\numberline {3.7.4.}Kodo priklausomybių tikrinimas}{14}{subsubsection.3.7.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.7.5.}Checkmarx ir SonarQube}{8}{subsubsection.3.7.5}%
+\contentsline {subsubsection}{\numberline {3.7.5.}Checkmarx ir SonarQube}{14}{subsubsection.3.7.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.7.6.}Vieneto ir integraciniai testai}{8}{subsubsection.3.7.6}%
+\contentsline {subsubsection}{\numberline {3.7.6.}Vieneto ir integraciniai testai}{14}{subsubsection.3.7.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.7.7.}Kodo formatavimas}{8}{subsubsection.3.7.7}%
+\contentsline {subsubsection}{\numberline {3.7.7.}Kodo formatavimas}{14}{subsubsection.3.7.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.7.8.}Integracija su Github Actions}{8}{subsubsection.3.7.8}%
+\contentsline {subsubsection}{\numberline {3.7.8.}Integracija su Github Actions}{14}{subsubsection.3.7.8}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.}Rezultatai, išvados ir pasiūlymai}{10}{section.4}%
+\contentsline {subsubsection}{\numberline {3.7.9.}Rezultatai}{14}{subsubsection.3.7.9}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.}Rezultatai}{10}{subsection.4.1}%
+\contentsline {section}{\numberline {4.}Rezultatai, išvados ir pasiūlymai}{15}{section.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.}Išvados}{10}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.1.}Rezultatai}{15}{subsection.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3.}Privalumai ir trūkumai}{10}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.2.}Išvados}{15}{subsection.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.}Pasiūlymai}{10}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.3.}Privalumai ir trūkumai}{15}{subsection.4.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.4.}Pasiūlymai}{15}{subsection.4.4}%

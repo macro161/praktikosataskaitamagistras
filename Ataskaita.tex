@@ -26,7 +26,7 @@
 \titleineng{Report on Professional Work Practice in the Company EPAM systems}
 \status{2 kurso studentas}
 \author{Matas Savickis}
-\supervisor{Petrauskas Karolis, Doc., Dr.}
+\supervisor{Karolis Petrauskas, Doc., Dr.}
 \reviewer{Nerijus Tenys}
 
 \date{Vilnius – \the\year}
@@ -136,7 +136,7 @@
 		Prieš kito sprinto planavimą komanda atlikdavo savo vidinę retrospektyvą ir padiskutuodavo kas buvo gerai ir ką reiktų tobulinti, kad ateities sprintai būtų produktyvesni.
 		Sprinto metu komanda darbo trumpos penkiolikos minučių susitikimus su klientų papasakoti ką kiekvienas komandos
 		narys radė praeitą dieną ir ką planuoją nueikti kitą dieną.
-		Šio susitikimo metu taip pat išsprendžiamos problemos dėl dabartinio sprinto užduočių.
+		Šio susitikimo metu taip pat išsprendžiamos problemos dėl dabartinio sprinto užduočių.entity
 		Sprinto metu programuotojai atilikinėja suplanuotas užduotis ir atlikinėja kitų komandos narių kodo peržiūras.
 		Testuotojas sprinto metu atlikinėja esamo funkcionalumo testavimą ir suradęs klaidą sukurią klaidos aprašą ir užduotį Atlasian sistemoje.
 		Rastas klaida kode būna pataisoma esamo sprinto metu, įtraukiama į kito sprinto planavimą arba ignoruojama ir 
@@ -152,59 +152,118 @@
 		Užtikrinti kodo kokybę mes naudojome įvarius statinio kodo analizės įrankius, tokius kaip: PMD, SpotBug, Checkstyle, Depedency Checker, Pom-lint.
 		Visi šie statiniai kodo analizatoriai padėjo užtikrinti, kodo kokybę, tvarką ir saugumą.
 		
-		
-	
-		
 	\subsection{Užduotis: Suprojektuoti duomenų bazės schemą.}
-		Pradedant projekta klientas pateike verslo reikalavimus, kaip skirtingi mokesciu modeliai saveikauja tarpusavyje ir kokias reiksmes jie turi.
-		Reikejo sukurti duomenu bazes schema kuri pasizymetu siomis savybemis:
+		Pradedant projekta klientas pateike verslo reikalavimus, kaip skirtingi mokesčiu modeliai saveikauja tarpusavyje ir kokias reikšmes jie turi.
+		Reikejo sukurti duomenu bazes schema kuri pasižymetų šiomis savybėmis:
 		\begin{itemize}
-			\item{Entitis turetu buta kaip apsisaugoti nuo false readu}
-			\item{Kiekvienas entitis butu unikaliai atskiriamas}
+			\item{Esybė turėtų švelnaus užrakinimo (angl. Soft lock) savybė.}
+			\item{Kiekvienas esybė turėtų unikalų identifikatorių.}
+			\item{Būtų įmanoma pasakyti kada esybė buvo sukurta.}
+			\item{Būtų įmanoma pasakyti kada esybė buvo atnaujinta.}
 		\end{itemize}
-		
 
+		Pagal pateiktus reikalavimus buvo sudaryta duomenų bazės schema.
+
+		ČIA BUS SCHEMA KAI NETYNGESIU JA IKELTI
+
+		Kiekviena schemos esybė paveldi iš tėvinės BaseEntity esybės kuri turi šiuos laukus
+		\begin{itemize}
+			\item{Id(UUID) - unikalus esybės identifikatorius UUID formatu užtikrinančiu, kad duplikatinio UUID tikimybė yra arti nulio.}
+			\item{Version(Integer) - inkrementaliai didėjantis skaičius kartu su Hibernate karkasu užtikrinantis švelnaus užrakto(angl. Soft lock) fukcionalumą.}
+			\item{CreatedAt(Date) - datos formatas parodantis kada esybė buvo sukurta}
+			\item{UpdatedAt(Date) - datos formatas parodantis kada esybė buvo pakeista paskutinį kartą.}
+		\end{itemize}
+
+
+		\begin{figure}[H]
+			\includegraphics[scale=0.7]{img/eight}
+			\caption{Duomenų bazės esybių paveldėjimo diagrama} % Antraštė įterpiama po paveikslėlio
+			\label{img:kurimoProcesas}
+		\end{figure}
+
+		Projekte buvo naudojama MySQL duomenų bazė pagal kliento prašymą.
+		Atlikti duomenų bazės pakeitimų migracijai buvo naudojama Liquibase migracijų įrankis.
 
 	\subsection{Užduotis: Išrinkti Java programavimo karkasą tinkamą debesijos kompiuterijai.}
-		Projekta pradejome nuo nulio ir gavome is kliento prasyma isrinkti Java kalbos karkasa labiau pritaikya debesijos skaiciavimams.
-		Akivaizdus sprendimas butu buves pasirinkti siuo metu populiariausia Spring karkasa ir ji naudoti, taciau norejome isitikinti, ar jis yra geriausias pasirinkimas.
+		Projektą pradėjome nuo pradžių ir gavome iš kliento prašymą išrinkti Java kalbos karkasą labiau pritaikyą debesijos skaičiavimams.
+		Paprastas sprendimas būtų buvęs pasirinkti šiuo metu populiariausią Spring karkasą ir jį naudoti, tačiau norėjome įsitikinti, ar jis yra geriausias pasirinkimas.
 		Atlikus pirmine analize supratome, kad Spring karkasas turi dvi pagrindines problemas
 		\begin{itemize}
-			\item{Ilgas salto paleidimo laikas(angl. Cold start)}
-			\item{Didelis sugeneruotu failu dydis}
+			\item{Ilgas šalto paleidimo laikas(angl. Cold start).}
+			\item{Didelis sugeneruotu failu dydis.}
 		\end{itemize}
-		Abu sie pamineti aspektai apkrauna debesijos aplinka, kas reiskia didesniu palaikymo kastus.
-		Atlikus paieska internete buvo prieita prie alternatyvu Spring karkasui:
+		Abu šie paminėti aspektai apkrauna debesijos aplinką, ko pasekoje debesijos paslaugos kainuoja daugiau, ypač jeigu sistemoje yra šimtai tinklo mazgų.
+		Atlikus paiešką internete buvo prieita prie alternatyvų Spring karkasui:
 		\begin{itemize}
 			\item{Micronaut}
 			\item{Quarkus}
 		\end{itemize}
-		Abu sie karkasai pasizymi prieslaikiniu kompiliavimu(angl. Ahead of Time Compilation).
-		Sis kompiliavimo budas leidzia sukompiliuoti auksto lygio programini koda i native byte koda faila.
-		To deka native failai buna mazesnis negu kompiliuojant just in time kompiliavimu.
-		Kadangi atliekamas ahead of time kompiliavimas programai nebereikia atlikti brangiu refleksijos operaciju suletinanciu programos pasileidima.
-		Palyginus internete rastus testus matuojancius Spring, Micronaut ir Quakus kompiliavimo laika, atminties sunaudijima, pasileidimo greiti ir uzkrausu apdorojimo greiti
-		pamateme, kad Micronaut ir Quarrkus karkasai skiriasi nezymiai, vienuose testuose laimi Micronaut kituose Quarkus, taciau skirtumas tarp siu dvieju karkasu ir
-		Spring karkaso buvo zymus ir matomas.
-		Spring karkasas laimi tik kompiliavimo greicio kategorijoje, kas produkciniai aplinkai nera svarbu.
-		Nusprendeme pasirinkti Micronaut karkasa, nes jis savo sintakse yra panasiausias Spring karkasui ir komanda jau turejo patirties dirbant su Spring.
-		Beto, jeigu ateityje Spring implementuos AOT kompiliacija ir native image'us bus nesunku migruoti projekta atgal i Spring.
+		Abu šie karkasai pasižymi priešlaikiniu kompiliavimu(angl. Ahead of Time Compilation).
+		Šis kompiliavimo būdas leidžia sukompiliuoti aukšto lygio programinį kodą į vietinį baito kodą(angl. Native byte code).
+		To deka vietiniai faila būna mažesnio dydžio negu kompiliuojant tradiciniu pačiu laiku kompiliavimu(angl. Just In Time compilation).
+		Kadangi atliekamas priešlaikinis kompiliavimas programai nereikia atlikti daug resusų kainuojančių refleksijos operacijų sulėtinančių programos paleidimą.
+		Vietiniai failai taip pat leidžia naudoti vietinių failų virtualias mašinas tokias kaip GraalVM kurių dėka paleidimo greitis yra sumažinamas.
+			\begin{figure}[H]
+			\includegraphics[scale=0.7]{img/three}
+			\caption{Spring ir Micronaut palyginimas naudojant GraalVM} % Antraštė įterpiama po paveikslėlio
+			\label{img:kurimoProcesas}
+			\end{figure}
+			\begin{figure}[H]
+			\includegraphics[scale=0.85]{img/one}
+			\caption{Spring, Micronaut ir Quarkus palyginimas} % Antraštė įterpiama po paveikslėlio
+			\label{img:kurimoProcesas}
+			\end{figure}
+			\begin{figure}[H]
+			\includegraphics[scale=0.7]{img/two}
+			\caption{Spring, Micronaut, Quarkus ir Colesico palyginimas} % Antraštė įterpiama po paveikslėlio
+			\label{img:kurimoProcesas}
+			\end{figure}
+		Palyginus internete rastus testus matuojancius Spring, Micronaut ir Quakus kompiliavimo laiką, atminties sunaudojimą, pasileidimo greiti ir užklausu apdorojimo greitį
+		matome, kad Micronaut ir Quarkus karkasai skiriasi nežymiai, vienuose testuose laimi Micronaut, kituose Quarkus, tačiau matomas  skirtumas tarp šiu dvieju karkasu ir Spring karkaso.
+		Spring karkasas laimi tik kompiliavimo greičio kategorijoje, kas produkciniai aplinkai nėra svarbu.
+		Nusprendeme pasirinkti Micronaut karkasa, nes jis savo sintakse yra panašus Spring karkasui ir komanda jau turejo patirties dirbant su Spring.
+		Beto, jeigu ateityje Spring karkaso kūrėjai įgyvendins prieškaikinį kompiliavimą ir ir vietinių failų kūrimą bus nesunku migruoti projekta atgal į Spring.
 
 
 	\subsection{Užduotis: Suprojektuoti duomenų sinchronizavimo architektūrą tarp atskirų duomenų bazių.}
-		Kurdami integracija su Auth0 servisu turejome uztikrinti, kad duomenys tiek Auth0 duomenu bazeje tiek kliento duomenu bazeje sutaptu.
-		Tiek bandant irasyti duomenis i Atuh0 duomenu baze tiek i kliento duomenu baze gali istikri sutrikimai, kuriu metu duomenys neissisaugotu ir atsirastu nesutapimas tarp siu baziu.
+		Kurdami integraciją su Auth0 servisu turejome užtikrinti, kad duomenys tiek Auth0 duomenų bazėje tiek kliento duomenų bazėje sutaptu.
+		Tiek bandant įrasyti duomenis į Auth0 duomenų bazę tiek į kliento vidinę duomenų bazę(toliau Vertex duomenų bazė) gali ištikti sutrikimai, kurių metu duomenys neišsisaugotu ir atsirastų nesutapimas tarp šiu baziu.
+		Gali įvykti 
 		Kadangi duomenys bandomi irasyti i dvi skirtingas duomenu bazes neimanoma visko atlikti per viena tranzakcija.
-		Reikia sugalvoti mechanizma uztikrinanti, kad ivykus sutrikimui, duomenys butu atstatomi o atstatymui nepasisekus apie nesutapima butu informuoti suinteresuoti asmenys kurie pataisytu 
-		si neatitikimas.
-		Kadangi bus kuriama daug metodu kurie kreipsis skirtingais budais i abi duomenu bazes reikia bendro mechanizmo darbui tarp duomenu baziu.
+		Reikia sugalvoti mechanizma uztikrinanti, kad ivykus sutrikimui, duomenys butu atstatomi sutrikimo metu, o atstatyti nepavykus pranešti palaikymo komandai, kad duomenys būtų pataisyti rankiniu būdu. 
+		Kuriant tokį mechanizmą svarbu įgyvendinti šiuos scenarijus:
+			\begin{figure}[H]
+			\includegraphics[scale=0.7]{img/five}
+			\caption{Sinchronizavimo mechanizmo pseudokodas} % Antraštė įterpiama po paveikslėlio
+			\label{img:kurimoProcesas}
+			\end{figure}
+		Kaip matome kuriant funkcionalumą paprastai kodas tampa labai komplikuotas, sunkiai skaitomas ir palaikomas.
+		Taip pat atliekant operacijas su skirtingom klasėm atsiranda kodo duplikacijos.
+		Šį pseudo kodą galima perdaryti į skaitomesni ir bendresni kodą:
+			\begin{figure}[H]
+			\includegraphics[scale=0.5]{img/six}
+			\caption{Sinchronizavimo mechanizmo įgyvendinimas} % Antraštė įterpiama po paveikslėlio
+			\label{img:kurimoProcesas}
+			\end{figure}
+
+		Naudojant šį kodą atlikti duomenų sinchronizacimui atrodytu taip:
+
+			\begin{figure}[H]
+			\includegraphics[scale=0.7]{img/seven}
+			\caption{Sinchronizavimo mechanizmo panaudojimas} % Antraštė įterpiama po paveikslėlio
+			\label{img:kurimoProcesas}
+			\end{figure}
+
+		Šiuo metu pademonstruotas kodas yra sėkmingai naudojamas projekte.
+		Sinchronizavimo mechanizmo pasekoje pagerėjo kodo skaitomumas, klaidų valdymas ir duomenų bazių atstatymas ištikus klaidai.
+		
 		
 
 
 	\subsection{Užduotis: Projektui parinkti kokybės užtikrinimo gerąsias praktikas ir jų vykdymo užtikrinimo būdus.}
-		Komanda nutarė, kad norint išlaikyti aukštą kodo kokybę ir sumažinti kodo klaidų ir saugumo spragų.
-		Norint įgyventinti šia užduotį reikia surasti reikiamus įrankus padėsiančius užtikrinti užsibrėžtus tikslus bei integruoti juos į programos kūrimo
-		procesą taip, kad būtų kuo sunkiau apeiti šiuos įrankius, nes gera programuotoju valia nevisuomet galima pasitikėti.
+		Komanda nutarė, kad norime išlaikyti aukštą kodo kokybę, sumažinti kodo klaidų ir saugumo spragų.
+		Norint įgyventinti šia užduotį reikia surasti reikiamus įrankius padėsiančius užtikrinti užsibrėžtus tikslus bei integruoti juos į programos kūrimo
+		procesą taip, kad būtų kuo sunkiau apeiti šiuos įrankius, nes gera programuotojų valia nevisuomet galima pasitikėti.
 		Užduotį pradėjau vykdyti atlikdamas įvairių statinės analizės įrankių paiešką ir įvertinimą.
 		Internete pavyko rasti nemažai mokamų ir nemokamų priemonių vykdančių kodo analizę.
 		
@@ -214,10 +273,16 @@
 			laiko ir pastangų toliau vystyti projektą.
 			Dėl šių priežasčių komanda nutarė, kad dokumentacijos rašymas turi būti integruotas į programų kūrimo procesą.
 			Vienas iš būdų Java kode rašyti dokumentacija yra naudoti Javadocs dokumentų generatorių kurio pagalba atitinkami Java kodo komentarai būtų 
-			sugeneruoti į dokumentaciją. Užtikrinti, kad JavaDocs komentarai būtų rašome kiekvienam viešam klasės metodui ir kontraktui naudosime  maven-javadocs-plugin biblioteką, kuri užtikrina, kad visi komentarai būtų rašomi tinkamu formatu, visų reikiamų metodų ir kontraktų parametrai būtų nurodyti ir aprašyta ką daro kiekvienas iš metodų.
+			sugeneruoti į dokumentaciją. 
+			Užtikrinti, kad JavaDocs komentarai būtų rašoma kiekvienam viešam klasės metodui ir kontraktui naudosime  maven-javadocs-plugin biblioteką, kuri užtikrina, kad visi komentarai būtų rašomi tinkamu formatu, visų reikiamų metodų ir kontraktų parametrai būtų nurodyti ir aprašyta ką daro kiekvienas iš metodų.
 			Jeigu vienas iš nurodytų kiterijų nėra įgyventintas maven-javadocs-plugin parodo klaidą ir pasako ko trūksta kad dokumentacija būtų teisinga.
+			\begin{figure}[H]
+			\includegraphics[scale=0.7]{img/four}
+			\caption{JavaDocs pavyzdys} % Antraštė įterpiama po paveikslėlio
+			\label{img:kurimoProcesas}
+			\end{figure}
 		\subsubsection{PMD}
-			Gero kodo požymis yra kai jame laikomasi tvarkos: nėra nepanaudotų kintamūjų ar nenaudojamų bibliotekų, kitamūjų pavadinimai turi prasmę ir laikomasi jų pavadinimo standartų, kode nėra magiškų skaičių(angl. Magic number). Dažnai tokius dalykus galima pastebėti kodo peržiūros stadijoje, tačiau visi žmonės klysta ir kartais praleidžia šiuos dalykus pro pirštus, beto jeigu būtų įrankis galintis patikrinti šiuos dalykus kodo peržiūros užimtų mažiau laiko.
+			Gero kodo požymis yra kai jame laikomasi tvarkos: nėra nepanaudotų kintamūjų ar nenaudojamų bibliotekų, kintamūjų pavadinimai turi prasmę ir laikomasi jų pavadinimo standartų, kode nėra magiškų skaičių(angl. Magic number). Dažnai tokius dalykus galima pastebėti kodo peržiūros stadijoje, tačiau visi žmonės klysta ir kartais praleidžia šiuos dalykus pro pirštus, beto jeigu būtų įrankis galintis patikrinti šiuos dalykus kodo peržiūros užimtų mažiau laiko.
 			Vienas iš atviro kodo įrankių plačiai naudojamos tokio tipo statiniai kodo analizei yra PMD. Jo pagalba galima patikrinti didelę aibę kodo stiliaus klaidų, gerūjų praktikų trūkumų bei daug kitų panašių dalykų.
 			PMD turi savų trūkumų, kartais yra rodomos klaidos kurių negalima ištaisyti, pavyzdžiui rodomos klaidos naudojant Lombok generuojamą kodą.
 			Išspręsti tokius tūkumus padeda lanksti PMD konfigūracija, kurios pagalba galima išjungti norimas kodo analizės taisykles visam projektui arba tik vienam failui.
@@ -233,14 +298,20 @@
 			Dar vienas svarbus kodo kokybės aspektas yra testai.
 			Nutarėme, kad projekto išeities kodas turi būti 80 procentų padengtas testais.
 			Tą užtikrinti naudojome Jacoco biblioteką parodančia koks yra projekto kodo padengimo testais procentais.
+			Jacoco biblioteka skaičiuoja kiek Java baitų kodo eilučių pasiekia testai.
 		\subsubsection{Kodo formatavimas}
 			Paskutinis aspektas kurį norėjome užtikrinti buvo kodo stiliaus pastovumas.
 			Jeigu kodas visame projekte atrodo panašiai tampa lengiau skaityti ir suprasti kodą.
 			Šiam tikslui pasirinkome plačiai naudojama Google Java style konvenciją, kurią tikrinom pagal Google suteiktą stiliaus tikrinimo įrankį checkStyle. 
 		\subsubsection{Integracija su Github Actions}
 			Suprantome, kad reikia priversti programuotojus naudotis statinio kodo analizės įrankiais nes kitu atveju niekas jų nenaudos.
-			Buvo nutarta šiuos įrankius sukonfigūruoti Github Action aplinkoje, kuri užtikrina, kad joks kodas negalėtų patekti į duomenų bazę prieš tai nepraėjęs visų minėtų įrankių.
+			Buvo nutarta šiuos įrankius sukonfigūruoti Github Action aplinkoje, kuri užtikrina, kad joks kodas negalėtų patekti į kodo bazę prieš tai nepraėjęs visų minėtų įrankių.
 			Visi šie įrankiai kartu su Github Actions integracija yra toliau sėkmingai naudojami komandoje.
+		\subsubsection{Rezultatai}
+			Pradėjus naudoti visus aukšiau minėtus įrankius kilo kėblumų, įrankiai rodė kodo klaidas kur jų nebuvo, kai kurių kodo klaidų
+			nebuvo įmanoma pataisyti, nes jos kilo iš generuojamo kodo(pavyzdžiui  naudojant Lombok biblioteką).
+			Tačiau praėjus kiek laiko konfigūracija buvo pritaikyta komandos poreikiams ir kodas atrodo labai švariai ir tvarkingai.
+			Sėkimingai surandamos kodo klaidos ir saugumo spragos.
 
 		
 \section{Rezultatai, išvados ir pasiūlymai}
