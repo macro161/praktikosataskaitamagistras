@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.8) (preloaded format=xelatex 2021.11.21)  26 NOV 2021 00:09
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.8) (preloaded format=xelatex 2021.11.21)  26 NOV 2021 00:50
 entering extended mode
 **./Ataskaita.tex
 (Ataskaita.tex
@@ -1701,17 +1701,23 @@ LaTeX Info: Redefining \ttfamily on input line 23.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: File `Ataskaita.out' has not changed.
-(rerunfilecheck)             Checksum: 4A301B2960CFC39D7F4A9FC7AE5BAFB2;6646.
+
+Package rerunfilecheck Warning: File `Ataskaita.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Ataskaita.out':
+(rerunfilecheck)             Before: 4A301B2960CFC39D7F4A9FC7AE5BAFB2;6646
+(rerunfilecheck)             After:  8C9E6A32B59AB2B609FD01BE5DA697E8;6651.
 Package logreq Info: Writing requests to 'Ataskaita.run.xml'.
 \openout1 = `Ataskaita.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35093 strings out of 411295
- 697126 string characters out of 2831840
- 1507059 words of memory out of 3000000
- 54987 multiletter control sequences out of 15000+600000
+ 35094 strings out of 411295
+ 697154 string characters out of 2831840
+ 1507060 words of memory out of 3000000
+ 54988 multiletter control sequences out of 15000+600000
  416724 words of font info for 95 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  117i,11n,145p,744b,3957s stack positions out of 5000i,500n,10000p,200000b,80000s
