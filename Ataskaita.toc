@@ -4,7 +4,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1.}Įvadas}{3}{section.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.1.}Praktikos vienos pasirinkimo motyvacija}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.1.}Praktikos vietos pasirinkimo motyvacija}{3}{subsection.1.1}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.2.}Praktikos užduotis}{3}{subsection.1.2}%
 \defcounter {refsection}{0}\relax 
@@ -34,17 +34,17 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.4.}Užduotis: Suprojektuoti duomenų bazės schemą.}{7}{subsection.3.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.5.}Užduotis: Išrinkti Java programavimo karkasą tinkamą debesijos kompiuterijai.}{8}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.5.}Užduotis: Išrinkti Java programavimo karkasą tinkamą debesijos kompiuterijai.}{9}{subsection.3.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.6.}Užduotis: Suprojektuoti duomenų sinchronizavimo architektūrą tarp atskirų duomenų bazių.}{10}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.6.}Užduotis: Suprojektuoti duomenų sinchronizavimo architektūrą tarp atskirų duomenų bazių.}{11}{subsection.3.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.7.}Užduotis: Projektui parinkti kokybės užtikrinimo gerąsias praktikas ir jų vykdymo užtikrinimo būdus.}{12}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.7.}Užduotis: Projektui parinkti kokybės užtikrinimo gerąsias praktikas ir jų vykdymo užtikrinimo būdus.}{13}{subsection.3.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.7.1.}JavaDocs validavimas}{12}{subsubsection.3.7.1}%
+\contentsline {subsubsection}{\numberline {3.7.1.}JavaDocs validavimas}{13}{subsubsection.3.7.1}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.7.2.}PMD}{13}{subsubsection.3.7.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.7.3.}SpotBugs}{13}{subsubsection.3.7.3}%
+\contentsline {subsubsection}{\numberline {3.7.3.}SpotBugs}{14}{subsubsection.3.7.3}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.7.4.}Kodo priklausomybių tikrinimas}{14}{subsubsection.3.7.4}%
 \defcounter {refsection}{0}\relax 
@@ -54,16 +54,22 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.7.7.}Kodo formatavimas}{14}{subsubsection.3.7.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.7.8.}Integracija su Github Actions}{14}{subsubsection.3.7.8}%
+\contentsline {subsubsection}{\numberline {3.7.8.}Integracija su Github Actions}{15}{subsubsection.3.7.8}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.7.9.}Rezultatai}{14}{subsubsection.3.7.9}%
+\contentsline {subsubsection}{\numberline {3.7.9.}Rezultatai}{15}{subsubsection.3.7.9}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.}Rezultatai, išvados ir pasiūlymai}{15}{section.4}%
+\contentsline {section}{\numberline {4.}Rezultatai, išvados ir pasiūlymai}{16}{section.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.}Rezultatai}{15}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.1.}Rezultatai}{16}{subsection.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.}Išvados}{15}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.2.}Išvados}{16}{subsection.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3.}Privalumai ir trūkumai}{15}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.3.}Privalumai ir trūkumai}{16}{subsection.4.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.}Pasiūlymai}{15}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.4.}Pasiūlymai}{16}{subsection.4.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {4.4.1.}Pasiūlymai įmonei}{16}{subsubsection.4.4.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {4.4.2.}Pasiūlymai universitetui}{17}{subsubsection.4.4.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Literatūra}{18}{section*.11}%
